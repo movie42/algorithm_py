@@ -1,4 +1,4 @@
-# 백준 온라인 저지 단계별 문제풀이 2단계
+# 백준 온라인 저지 단계별 문제풀이 if문 2단계
 # https://www.acmicpc.net/step/4
 # 9498
 # https://www.acmicpc.net/problem/9498
