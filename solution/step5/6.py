@@ -15,10 +15,10 @@ for _ in range(n):
         average += i
 
     average = average/array[0]
-    
+
     for i in array[1:]:
         if i > average:
             count += 1
-    
+
     percent = (count/array[0])*100
     print('%.3f%s' % (percent, "%"))
