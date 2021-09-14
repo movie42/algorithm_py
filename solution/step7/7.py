@@ -4,23 +4,8 @@
 # https://www.acmicpc.net/problem/2941
 
 str = input()
-list = []
+string = ["c=","c-","dz=","d-","lj","nj","s=","z="]
+for i in string:
+    str = str.replace(i, "0")
 
-if "c=" in str:
-    list += str.split('c=')
-if "c-" in str:
-    list += str.split('c-')
-if "dz=" in str:
-    list += str.split('dz=')
-if "d-" in str:
-    list += str.split('d-')
-if "lj" in str:
-    list += str.split('lj')
-if "nj" in str:
-    list += str.split('nj')
-if "s=" in str:
-    list += str.split('s=')
-if "z=" in str:
-    list += str.split('z=')
-
-print(list)
+print(len(str))
