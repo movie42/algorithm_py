@@ -1,6 +1,2 @@
 5
-21 Dohyun
-22 Kohyunsu
-20 Sunyoung
-22 Parks
-21 Junkyu
+2 4 -10 4 -9

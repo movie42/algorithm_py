@@ -1,19 +1,16 @@
 # 백준 온라인 저지 단계별 문제풀이 12단계 정렬
 # https://www.acmicpc.net/step/9
-# 18870
+# 10814
 # https://www.acmicpc.net/problem/18870
 
 import sys
 
 N = int(sys.stdin.readline())
-users = []
+position = list(map(int, sys.stdin.readline().split()))
 
-for i in range(N):
-    age, name = sys.stdin.readline().split()
-    users.append((age, name))
+compressor = sorted(set(position))
 
-sorted_users = sorted(users, key=lambda item:int(item[0]))
+dict = {compressor[i]:i  for i in range(len(compressor))}
 
-for i in sorted_users:
-    print(i[0], i[1])
-
+for i in position:
+    print(dict[i], end=" ")
