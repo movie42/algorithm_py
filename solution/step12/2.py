@@ -9,7 +9,7 @@ N = int(sys.stdin.readline())
 count_list = [0]*10001
 
 for i in range(N):
-    num = m = int(sys.stdin.readline())
+    num = int(sys.stdin.readline())
     count_list[num] += 1
 
 for i in range(len(count_list)):
