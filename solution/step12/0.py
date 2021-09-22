@@ -1,4 +1,4 @@
-# 백준 온라인 저지 단계별 문제풀이 12단계 기본 수학1
+# 백준 온라인 저지 단계별 문제풀이 12단계 정렬
 # https://www.acmicpc.net/step/9
 # 2750
 # https://www.acmicpc.net/problem/2750
