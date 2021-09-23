@@ -3,23 +3,29 @@
 # 4949
 # https://www.acmicpc.net/problem/4949
 
-N = int(input())
+while True:
+    str = input()
+    stack_list = list()
 
-ps_stack = []
+    if str == ".":
+        break
 
-for i in range(N):
-    ps_stack = []
-    ps_list = list(input())
-    for i in ps_list:
-        if i == "(":
-            ps_stack.append(i)
-        else:
-            if len(ps_stack) > 0:
-                ps_stack.pop()
+    for i in str:
+        if i == "(" or i == "[":
+            stack_list.append(i)
+        elif i == ')':
+            if stack_list and stack_list[-1] == '(':
+                stack_list.pop()
             else:
-                ps_stack.append(i)
+                stack_list.append(')')
                 break
-    if len(ps_stack) == 0:
-        print("YES")
+        elif i == ']':
+            if stack_list and stack_list[-1] == '[':
+                stack_list.pop()
+            else:
+                stack_list.append(']')
+                break
+    if stack_list:
+        print("no")
     else:
-        print("NO")
+        print("yes")
