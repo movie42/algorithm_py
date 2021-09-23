@@ -1,18 +1,18 @@
 # 버블 정렬
 
 import random
-data_list = random.sample(range(100), 50)
+data_list = random.sample(range(10000), 10000)
 
-def bubblesort(data):
+def bubbleSort(data):
     for i in range(len(data)):
         swap = False
-        for j in range(len(data)-1):
-            if data[j] > data[j+1]:
-                data[j], data[j+1] = data[j+1], data[j]
+        for j in range(i+1, len(data)):
+            if data[i] > data[j]:
+                data[i], data[j] = data[j], data[i]
                 swap = True
-        if swap == False:
-            break
+        if not swap:
+            break 
     return data
 
-print(bubblesort(data_list))
+print(bubbleSort(data_list))
 
