@@ -3,6 +3,7 @@
 # = 30 3 /
 # = 10
 
+
 class Stack:
     def __init__(self):
         self.list = list()
@@ -22,17 +23,15 @@ class Calculator:
         self.string = string.split()
         for i in self.string:
             if i is "+":
-                self.stack.list.append(
-                    self.stack.list.pop() + self.stack.list.pop())
+                self.stack.list.append(self.stack.list.pop() + self.stack.list.pop())
             elif i is "-":
-                self.stack.list.append(
-                    -self.stack.list.pop() + self.stack.list.pop())
+                self.stack.list.append(-self.stack.list.pop() + self.stack.list.pop())
             elif i is "/":
                 self.stack.list.append(
-                    1/self.stack.list.pop() * self.stack.list.pop())
+                    1 / self.stack.list.pop() * self.stack.list.pop()
+                )
             elif i is "*":
-                self.stack.list.append(
-                    self.stack.list.pop() * self.stack.list.pop())
+                self.stack.list.append(self.stack.list.pop() * self.stack.list.pop())
             else:
                 self.stack.push(int(i))
         return self.stack.list.pop()
@@ -40,5 +39,5 @@ class Calculator:
 
 # Test code
 calc = Calculator()
-print(calc.calculate('4 6 * 2 / 2 +'))
-print(calc.calculate('2 5 + 3 * 6 - 5 *'))
+print(calc.calculate("4 6 * 2 / 2 +"))
+print(calc.calculate("2 5 + 3 * 6 - 5 *"))

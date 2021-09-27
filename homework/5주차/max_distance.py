@@ -2,25 +2,22 @@ import heapq
 
 
 def solution(n, vertex):
-    to_visit = []
-    dists = [float('inf')] * (n + 1)
+    queue = []
+    distances = [float("inf")] * (n + 1)
+    distances[1] = 0
 
-    dists[1] = 0
-    heapq.heappush(to_visit, (0, 1))
-    while len(to_visit) > 0:
-        dist, node = heapq.heappop(to_visit)
-        adj_list = list(map(lambda x: x[1], filter(
-            lambda x: x[0] == node, vertex)))
-        adj_list += list(map(lambda x: x[0],
-                         filter(lambda x: x[1] == node, vertex)))
-        for adj_node in adj_list:
-            if dists[adj_node] > dist + 1:
-                dists[adj_node] = dist + 1
-                heapq.heappush(to_visit, (dists[adj_node], adj_node))
+    heapq.heappush(queue, (distances[1], 1))
 
-    return dists.count(max(dists[1:]))
+    while queue:
+        distance_c, node_c = heapq.heappop(queue)
+        # 여기서부터...
+        adj_list = list(map(lambda x: x[1], filter(lambda x: x[0] == node_c, vertex)))
+
+        print("node_c", node_c, "adj_list", adj_list)
 
 
+# 노드의 개수
 n = 6
+# vertex [a, b] a 노드와 b 노드 사이에 간선이 있다는 의미
 vertex = [[3, 6], [4, 3], [3, 2], [1, 3], [1, 2], [2, 4], [5, 2]]
 print(solution(n, vertex))

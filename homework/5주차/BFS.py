@@ -1,6 +1,7 @@
-# DFS
-# 스택과 큐를 활용
-# will_visit 스택, visited 큐를 생성
+# BFS 깊이 우선 탐색
+# 시작 노드에서 형제 노드를 우선으로 탐색하는 방법
+# 큐를 활용함
+
 
 graph = {}
 
@@ -16,16 +17,18 @@ graph["I"] = ["C", "J"]
 graph["J"] = ["I"]
 
 
-def dfs(data, start_node):
-    will_visit, visited = list(), list()
+def BFS(graph, start_node):
+    will_visit, visited = [], []
+
     will_visit.append(start_node)
+
     while will_visit:
-        node = will_visit.pop()
+        node = will_visit.pop(0)
         if node not in visited:
             visited.append(node)
-            will_visit.extend(data[node])
+            will_visit.extend(graph[node])
     return visited
 
 
-# ['A', 'C', 'I', 'J', 'H', 'G', 'B', 'D', 'F', 'E']
-print(dfs(graph, "A"))
+["A", "B", "C", "D", "G", "H", "I", "E", "F", "J"]
+print(BFS(graph, "A"))

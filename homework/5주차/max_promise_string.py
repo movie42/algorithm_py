@@ -18,30 +18,26 @@ def gcdString(a, b):
         else:
             return ""
 
-    if i < len(a)-1:
+    if i < len(a) - 1:
         return gcdString(a[i:], str)
-    elif j < len(b)-1:
+    elif j < len(b) - 1:
         return gcdString(b[j:], str)
 
     return str
 
 
-A = 'ababcde'
-B = 'ababcde'
+A = "ababcde"
+B = "ababcde"
 print(gcdString(A, B))
 
-A = 'ababababab'
-B = 'abab'
+A = "ababababab"
+B = "abab"
 print(gcdString(A, B))
 
-A = 'abababab'
-B = 'abab'
+A = "abababab"
+B = "abab"
 print(gcdString(A, B))
 
-A = 'abababab'
-B = 'abab'
-print(gcdString(A, B))
-
-A = 'fast'
-B = 'campus'
+A = "fast"
+B = "campus"
 print(gcdString(A, B))
