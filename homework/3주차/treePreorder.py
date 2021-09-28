@@ -103,6 +103,7 @@ class Tree:
                 else:
                     node_p.right = c_node
 
+                # 만약에 right node에 자녀가 없을 경우
                 if c_node.right.data == c_p_node.right.data:
                     c_node.right = None
                 else:
