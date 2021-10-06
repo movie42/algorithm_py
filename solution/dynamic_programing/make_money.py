@@ -1,21 +1,32 @@
+# def solution(N, duration, cost):
+#     dp = [0]*(N+1)
+
+#     def dynamic_programming():
+#         max_val = 0
+
+#         for i in range(N-1, -1, -1):
+#             if duration[i] + i <= N:
+#                 # 다이나믹 프로그래밍은 값을 저장하는게 중요한데
+#                 # 어떻게 저장할지에 대한 아이디어를 떠올리는게 중요하다.
+#                 dp[i] = max(cost[i] + dp[i+duration[i]], dp[i+1])
+#             else:
+#                 dp[i] = dp[i+1]
+#         max_val = dp[0]
+#         return max_val
+
+#     result = dynamic_programming()
+#     return result
+
 def solution(N, duration, cost):
     dp = [0]*(N+1)
 
-    def dynamic_programming():
-        max_val = 0
+    for i in range(N-1, -1, -1):
+        if duration[i] + i <= N:
+            dp[i] = max(dp[i + 1], dp[i + duration[i]] + cost[i])
+        else:
+            dp[i] = dp[i + 1]
 
-        for i in range(N-1, -1, -1):
-            if duration[i] + i <= N:
-                # 다이나믹 프로그래밍은 값을 저장하는게 중요한데
-                # 어떻게 저장할지에 대한 아이디어를 떠올리는게 중요하다.
-                dp[i] = max(cost[i] + dp[i+duration[i]], dp[i+1])
-            else:
-                dp[i] = dp[i+1]
-        max_val = dp[0]
-        return max_val
-
-    result = dynamic_programming()
-    return result
+    return dp[0]
 
 
 N = 7

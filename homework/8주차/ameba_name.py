@@ -1,7 +1,4 @@
-# 아메바 이름 지어주기
-# 피보나치 수열을 동적 계획법(?)으로 푸는 것처럼 접근했다.
-
-# 내 풀이
+# 동적 계획법을 사용해서 피보나치 수열을 구하는 방법으로 구현했다. 
 def solution(N):
     answer = 0
     name_list = [0] * (N+1)
@@ -24,12 +21,14 @@ def solution(N):
 
 print(solution(4))
 
+# 그런데 Tree의 특수한 형태를 묻는 문제였다고 한다. 
+# DFS... 
+# 풀이를 찬찬히 뜯어보면 너무 멋있는 풀이다. 아메바가 분열할때와 쉴때를 True와 False로 나눠서 count를 셌다. 
+# 그러면 모든 이름을 셀수 있다.
 
-# 예시답안
-# 답이 멋있다. DFS, BFS, 그래프와 같은 상상력이 부족한가...?ㅜ
 def solution2(N):
     stack = []
-    stack.append((0, True))  # (level, ready)
+    stack.append((0, True)) # (level, ready)
     count = 1
 
     while stack:
@@ -47,23 +46,14 @@ def solution2(N):
 
     return count
 
-
 N = 2
-print(solution2(N))  # 5
+print(solution2(N)) # 5
 
 N = 4
-print(solution2(N))  # 15
+print(solution2(N)) # 15
 
 N = 8
-print(solution2(N))  # 109
+print(solution2(N)) # 109
 
 
-def workContinue():
-    for i in range(10):
-        if i == 3:
-            continue
 
-        print(i, 'hi')
-
-
-workContinue()
