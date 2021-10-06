@@ -35,13 +35,13 @@ str2 = input()
 
 n, m = len(str1), len(str2)
 
-array = [[0]*(n+1) for _ in range(m+1)]
+lcs_table = [[0]*(m+1) for _ in range(n+1)]
 
-for i in range(1, (n+1)):
-    for j in range(1, (m+1)):
-        if str2[j-1] == str1[i-1]:
-            array[i][j] = array[i-1][j-1] + 1
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        if str1[i-1] == str2[j-1]:
+            lcs_table[i][j] = lcs_table[i-1][j-1] + 1
         else:
-            array[i][j] = max(array[i-1][j], array[i][j-1])
+            lcs_table[i][j] = max(lcs_table[i-1][j], lcs_table[i][j-1])
 
-print(array[n][m])
+print(lcs_table[n][m])

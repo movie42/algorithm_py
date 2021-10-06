@@ -33,15 +33,33 @@
 # print(max(max_value))
 
 
+# 틀림
+# # N 물건의 개수, K 들수 있는 총 무게
+# N, K = map(int, input().split())
+
+# bag = [0]*(K+1)
+
+# for i in range(N):
+#     weight, value = map(int, input().split())
+#     bag[weight] = value
+#     bag[K] = max(bag[K], bag[weight] + bag[weight-1])
+
+# print(bag[K])
+
+
+# 틀린 이유가... 아마도 가방의 무게의 변화를 계속 초기화하지 않아서 그런것 같다.
+# 그러니까. 예를 들어 3을 들었는데 4이면 3과 더할 수 있는거니까 4 = 14가 되어야한다.
 # N 물건의 개수, K 들수 있는 총 무게
 N, K = map(int, input().split())
-staff_W_V = [[0]*(K+1) for _ in range(N+1)]
+
+bag = [[0]*(K+1) for _ in range(N+1)]
 
 for i in range(1, N+1):
-    W, V = map(int, input().split())
+    weight, value = map(int, input().split())
     for j in range(1, K+1):
-        if j < W:
-            staff_W_V[i][j] = staff_W_V[i-1][j]
+        if j < weight:
+            bag[i][j] = bag[i-1][j]
         else:
-            staff_W_V[i][j] = max(staff_W_V[i-1][j], staff_W_V[i-1][j-W] + V)
-print(staff_W_V[N][K])
+            bag[i][j] = max(bag[i-1][j], bag[i-1][j-weight] + value)
+
+print(bag[N][K])
