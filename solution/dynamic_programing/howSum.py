@@ -18,6 +18,8 @@ def howSum(targetSum, numbers):
 # print(howSum(300, [7, 14]))
 
 # 다이나믹 프로그래밍
+
+
 def howSum_dyn(targetSum, numbers, memo):
     if targetSum in memo:
         return memo[targetSum]
@@ -35,8 +37,9 @@ def howSum_dyn(targetSum, numbers, memo):
     memo[targetSum] = None
     return None
 
-print(howSum_dyn(7, [2, 3],{}))
-print(howSum_dyn(7, [5, 3, 4, 7],{}))
-print(howSum_dyn(7, [2, 4],{}))
-print(howSum_dyn(8, [2, 3, 5],{}))
+
+print(howSum_dyn(7, [2, 3], {}))
+print(howSum_dyn(7, [5, 3, 4, 7], {}))
+print(howSum_dyn(7, [2, 4], {}))
+print(howSum_dyn(8, [2, 3, 5], {}))
 print(howSum_dyn(300, [7, 14], {}))
