@@ -53,7 +53,7 @@ def gridTraveler_tab(m, n):
     for i in range(m+1):
         for j in range(n+1):
             if i+1 <= m:
-                tsable[i+1][j] += table[i][j]
+                table[i+1][j] += table[i][j]
             if j+1 <= n:
                 table[i][j+1] += table[i][j]
     return table[m][n]

@@ -31,8 +31,6 @@ def fibonaci_dyn2(n, memo={}):
     return memo[n]
 
 # tabulate fib
-# 자바스크립트는 index의 범위를 넘어가도 자동으로 처리하는데 반해 파이썬은 그렇지 못한 것 같다.
-
 
 def fib_tabulate(n):
     table = [0] * (n+1)
