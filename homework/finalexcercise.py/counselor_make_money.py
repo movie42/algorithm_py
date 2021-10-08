@@ -1,21 +1,26 @@
+# 으아... 테이블 갱신이 안된다.
+# def solution(N, duration, cost):
+#     table = [0] * (N+1)
+#     for i in range(N):
+#         if i + duration[i] <= N:
+#             table[i+duration[i]] = max(table[i] +
+#                                        cost[i], table[i+duration[i]])
+#         else:
+#             table[i] = max(table)
+
+#     return table[N]
+
 def solution(N, duration, cost):
-    cost_load_map = [0]*(N+1)
-    result=[]
-    day_cost = [(d, c) for d, c in zip(duration, cost)]
+    table = [0] * (N+1)
+
     for i in range(N-1, -1, -1):
-        cost_load_map = [0]*(N+1)
-        j = i
-        while j >= 0:
-            d, c = map(int, day_cost[j])
-            if j + d > N:
-                break
-            else:
-                j -= d
-                cost_load_map[j] += c
-        print(cost_load_map)
-        result.append(sum(cost_load_map))
-    result = max(result)
-    return result
+        if i + duration[i] <= N:
+            table[i] = max(table[i+duration[i]] +
+                           cost[i], table[i+1])
+        else:
+            table[i] = table[i+1]
+
+    return table[0]
 
 
 N = 7

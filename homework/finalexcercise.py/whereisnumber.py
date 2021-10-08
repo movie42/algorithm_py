@@ -1,15 +1,13 @@
+# 쉬운 문제일수록 조건을 잘 읽어야겠다. ㅜㅠ
+
 def solution(array, commands):
     answer = []
 
     for command in commands:
-        cut_list = []
-        i, j, k = map(int, command)
-        if i == j:
-            cut_list = array[i:j+1]
-        else:
-            cut_list = array[i:j]
-        cut_list.sort()
-        answer.append(cut_list[k-1])
+        i, j, k = command
+        copy = array[i-1:j]
+        copy.sort()
+        answer.append(copy[k-1])
     return answer
 
 
