@@ -10,15 +10,15 @@
 
 #     return table[N]
 
-def solution(N, duration, cost):
-    table = [0] * (N+1)
 
-    for i in range(N-1, -1, -1):
+def solution(N, duration, cost):
+    table = [0] * (N + 1)
+
+    for i in range(N - 1, -1, -1):
         if i + duration[i] <= N:
-            table[i] = max(table[i+duration[i]] +
-                           cost[i], table[i+1])
+            table[i] = max(table[i + duration[i]] + cost[i], table[i + 1])
         else:
-            table[i] = table[i+1]
+            table[i] = table[i + 1]
 
     return table[0]
 

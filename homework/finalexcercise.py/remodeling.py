@@ -22,8 +22,7 @@ def solution(n, weak, dist):
                         break
 
                     friend_idx += 1
-                    possible_check_length = order[friend_idx] + \
-                        start_point[idx]
+                    possible_check_length = order[friend_idx] + start_point[idx]
             answer = min(answer, friend_count)
 
     if answer > len(dist):

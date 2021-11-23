@@ -13,16 +13,13 @@ def solution(n, vertex):
     while queue:
         # 현재 거리, 현재 노드
         distance_c, node_c = heapq.heappop(queue)
-        print("distance_c", distance_c, 'node_c', node_c)
+        print("distance_c", distance_c, "node_c", node_c)
 
         # 인접 노드 찾기
         # map은 map(적용시킬 조건, 타겟) filter(적용시킬 조건, 타겟)
         # map(적용시킬 조건, 타겟(filter(적용시킬 조건, 타겟)))
-        adj_list = list(map(lambda x: x[1], filter(
-            lambda x: x[0] == node_c, vertex)))
-        adj_list += list(map(lambda x: x[0],
-                             filter(lambda x: x[1] == node_c, vertex)))
-
+        adj_list = list(map(lambda x: x[1], filter(lambda x: x[0] == node_c, vertex)))
+        adj_list += list(map(lambda x: x[0], filter(lambda x: x[1] == node_c, vertex)))
         for adj_node in adj_list:
             # print("adj_node", adj_node)
             if distances[adj_node] > distance_c + 1:
